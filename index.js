@@ -1,15 +1,15 @@
 'use strict';
 
-const postcss = require('postcss');
-const functions = require('postcss-functions');
-const consistent = require('consistent');
-const url = require('url');
+var postcss = require('postcss');
+var functions = require('postcss-functions');
+var consistent = require('consistent');
+var url = require('url');
 
-module.exports = postcss.plugin('prefix', (options) => {
+module.exports = postcss.plugin('prefix', function (options) {
   options = options || {};
-  let prefix = options.prefix || '';
-  const useUrl = options.useUrl || false;
-  const exclude = options.exclude || null;
+  var prefix = options.prefix || '';
+  var useUrl = options.useUrl || false;
+  var exclude = options.exclude || null;
 
   if (Array.isArray(prefix)) {
     if (prefix.length === 1) {
@@ -19,14 +19,14 @@ module.exports = postcss.plugin('prefix', (options) => {
     }
   }
 
-  let ring;
+  var ring;
   if (Array.isArray(prefix)) {
     ring = new consistent({
       members: prefix
     });
   }
 
-  this.getPrefix = (path) => {
+  var getPrefix = function (path) {
     if (typeof prefix === 'string') {
       return prefix;
     }
@@ -34,27 +34,27 @@ module.exports = postcss.plugin('prefix', (options) => {
     return ring.get(path);
   }
 
-  this.formatUrl = (path, includePrefix) => {
+  var formatUrl = function (path, includePrefix) {
     includePrefix = typeof includePrefix !== 'undefined' ? includePrefix : true;
-    const sanitizedPath = path.replace(/['"]/g, '');
+    var sanitizedPath = path.replace(/['"]/g, '');
 
     if ((exclude && exclude.test(path)) || /^([a-z]+:\/\/|\/\/)/i.test(path)) {
       includePrefix = false;
     }
 
-    const prefix = includePrefix ? this.getPrefix(sanitizedPath) : '';
+    var prefix = includePrefix ? getPrefix(sanitizedPath) : '';
 
-    return `url(${url.resolve(prefix, sanitizedPath)})`;
+    return 'url('+url.resolve(prefix, sanitizedPath)+')';
   };
 
   return postcss().use(functions({
     functions: {
-      cdn: (path) => {
-        return this.formatUrl(path);
+      cdn: function(path) {
+        return formatUrl(path);
       },
 
-      url: (path) => {
-        return this.formatUrl(path, useUrl);
+      url: function(path) {
+        return formatUrl(path, useUrl);
       }
     }
   }));
