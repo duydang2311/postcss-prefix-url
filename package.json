@@ -21,10 +21,10 @@
   "license": "ISC",
   "dependencies": {
     "consistent": "^1.1.0",
-    "postcss": "^5.2.15",
-    "postcss-functions": "^2.1.1"
+    "postcss": "^6.0.21",
+    "postcss-functions": "https://github.com/wpbakery/postcss-functions.git#8aa5a44c1c07c522f704ceaa6794b74682e444f1"
   },
   "devDependencies": {
-    "ava": "^0.18.2"
+    "ava": "^0.25.0"
   }
 }
