@@ -22,7 +22,7 @@
   "dependencies": {
     "consistent": "^1.1.0",
     "postcss": "^6.0.21",
-    "postcss-functions": "https://github.com/wpbakery/postcss-functions.git#8aa5a44c1c07c522f704ceaa6794b74682e444f1"
+    "postcss-functions": "git://github.com/wpbakery/postcss-functions.git#8aa5a44c1c07c522f704ceaa6794b74682e444f1"
   },
   "devDependencies": {
     "ava": "^0.25.0"
