@@ -1,30 +1,32 @@
 {
-  "name": "postcss-prefix-url",
-  "version": "1.0.0",
-  "description": "Prefix URLs with CDN",
-  "main": "index.js",
-  "scripts": {
-    "test": "ava test"
-  },
-  "keywords": [
-    "postcss",
-    "postcss-plugin",
-    "cdn",
-    "prefix",
-    "url"
-  ],
-  "author": "Kevin Smithson <smitt04@gmail.com>",
-  "repository": {
-    "url": "https://github.com/smitt04/postcss-prefix-url.git",
-    "type": "git"
-  },
-  "license": "ISC",
-  "dependencies": {
-    "consistent": "^1.1.0",
-    "postcss": "^6.0.21",
-    "postcss-functions": "https://github.com/wpbakery/postcss-functions.git#8aa5a44c1c07c522f704ceaa6794b74682e444f1"
-  },
-  "devDependencies": {
-    "ava": "^0.25.0"
-  }
+	"name": "postcss-prefix-url",
+	"version": "1.0.0",
+	"description": "Prefix URLs with CDN",
+	"main": "index.js",
+	"scripts": {
+		"test": "ava test"
+	},
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"cdn",
+		"prefix",
+		"url"
+	],
+	"author": "Kevin Smithson <smitt04@gmail.com>",
+	"repository": {
+		"url": "https://github.com/smitt04/postcss-prefix-url.git",
+		"type": "git"
+	},
+	"license": "ISC",
+	"dependencies": {
+		"consistent": "^1.1.0",
+		"postcss-functions": "^4.0.2"
+	},
+	"devDependencies": {
+		"ava": "^4.3.0"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4.14"
+	}
 }
